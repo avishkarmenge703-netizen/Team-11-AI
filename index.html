@@ -5,110 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team11 AI - Fantasy Prediction</title>
 
-  <!-- CSS File -->
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
     <h2 class="logo">⚡ Team11 AI</h2>
+
+    <div class="nav-links">
+      <a href="#players">Players</a>
+      <a href="#generator">Team Generator</a>
+    </div>
+
     <a href="#players" class="nav-btn">Get Predictions</a>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
 
-    <!-- Floating Circles Background -->
-    <div class="floating-circle circle1"></div>
-    <div class="floating-circle circle2"></div>
-
     <div class="hero-content">
       <h1 class="hero-title">
-        Dream11 Team Prediction <br> Powered by AI 🤖
+        Dream11 Prediction Powered by AI 🤖
       </h1>
 
       <p class="hero-subtitle">
-        Team11 AI helps you select the best fantasy players using stats, pitch analysis & AI prediction.
+        Select best fantasy team with match insights, AI score & auto generator.
       </p>
 
-      <a href="#players" class="hero-btn">🔥 View Top Picks</a>
+      <a href="#generator" class="hero-btn">⚡ Generate My Team</a>
     </div>
 
   </section>
 
+  <!-- Match Selector -->
+  <section class="match-section">
+    <h2>🏏 Select Match</h2>
+
+    <select id="matchSelect">
+      <option>India vs Australia</option>
+      <option>CSK vs MI</option>
+      <option>RCB vs KKR</option>
+      <option>Pakistan vs England</option>
+    </select>
+  </section>
+
+  <!-- Search Player -->
+  <section class="search-section">
+    <h2>🔍 Search Player</h2>
+    <input type="text" id="searchInput" placeholder="Type player name...">
+  </section>
+
   <!-- Players Section -->
   <main id="players">
-    <h2 class="section-title">🏏 Today's Best Fantasy Picks</h2>
-    <p class="section-desc">
-      ये players form + performance prediction के basis पर चुने गए हैं।
-    </p>
+    <h2 class="section-title">🔥 Top AI Fantasy Picks</h2>
 
-    <div class="player-container">
+    <div class="player-container" id="playerList">
 
       <!-- Player Card -->
-      <div class="player-card animate-card captain">
+      <div class="player-card captain">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Virat_Kohli.jpg">
         <h3>Virat Kohli (C)</h3>
-        <p><b>Why Pick?</b> Consistent run scorer & best captain choice for max fantasy points.</p>
+
+        <p><b>Why Pick?</b> Best consistent scorer, high captain points guarantee.</p>
+
+        <!-- AI Score -->
+        <div class="score-bar">
+          <div class="score-fill" style="width:95%"></div>
+        </div>
+        <small>AI Score: 95%</small>
+
         <span class="tag">Captain Suggestion</span>
         <button>Select Player</button>
       </div>
 
       <!-- Player Card -->
-      <div class="player-card animate-card">
+      <div class="player-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Rohit_Sharma.jpg">
         <h3>Rohit Sharma</h3>
-        <p><b>Why Pick?</b> Explosive opener, powerplay me boundaries + quick points deta hai.</p>
+        <p><b>Why Pick?</b> Explosive opener, powerplay bonus points.</p>
+
+        <div class="score-bar">
+          <div class="score-fill" style="width:88%"></div>
+        </div>
+        <small>AI Score: 88%</small>
+
         <button>Select Player</button>
       </div>
 
       <!-- Player Card -->
-      <div class="player-card animate-card">
+      <div class="player-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Jasprit_Bumrah.jpg">
         <h3>Jasprit Bumrah</h3>
-        <p><b>Why Pick?</b> Death overs specialist, wickets guaranteed = high fantasy score.</p>
-        <button>Select Player</button>
-      </div>
+        <p><b>Why Pick?</b> Wicket machine, death overs king.</p>
 
-      <!-- Player Card -->
-      <div class="player-card animate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Hardik_Pandya.jpg">
-        <h3>Hardik Pandya</h3>
-        <p><b>Why Pick?</b> All-rounder advantage, batting + bowling dono se points milte hain.</p>
-        <button>Select Player</button>
-      </div>
+        <div class="score-bar">
+          <div class="score-fill" style="width:90%"></div>
+        </div>
+        <small>AI Score: 90%</small>
 
-      <!-- Player Card -->
-      <div class="player-card animate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/MS_Dhoni.jpg">
-        <h3>MS Dhoni (WK)</h3>
-        <p><b>Why Pick?</b> Wicketkeeping + finishing ability = safe fantasy pick.</p>
-        <button>Select Player</button>
-      </div>
-
-      <!-- Player Card -->
-      <div class="player-card animate-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Ravindra_Jadeja.jpg">
-        <h3>Ravindra Jadeja</h3>
-        <p><b>Why Pick?</b> Full package: wickets + catches + quick runs = top all-rounder.</p>
         <button>Select Player</button>
       </div>
 
     </div>
   </main>
 
+  <!-- Team Generator -->
+  <section id="generator" class="generator-section">
+    <h2>⚡ Auto Team Generator</h2>
+    <p>Click below to generate best Dream11 team instantly.</p>
+
+    <button class="generate-btn" onclick="generateTeam()">
+      Generate My Team 🚀
+    </button>
+
+    <div id="teamResult"></div>
+  </section>
+
   <!-- Footer -->
   <footer>
-    <p>⚡ Team11 AI © 2026 | Fantasy Prediction Platform</p>
-    <p>Made with ❤️ for Dream11 Players</p>
+    <p>⚡ Team11 AI © 2026 | AI Fantasy Prediction Platform</p>
   </footer>
 
-  <!-- JS File -->
   <script src="js/script.js"></script>
 
 </body>
-          </html>
+    </html>
